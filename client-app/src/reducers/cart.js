@@ -10,7 +10,7 @@ const initialState = {
       case STORE_IN_CART:
         return {
           ...state,
-          products: [...state, action.products],
+          products: [...state.cart, action.cart],
         };
       default:
         return state;
