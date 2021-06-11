@@ -15,8 +15,6 @@ import {
   Button,
 } from "shards-react";
 
-const cartInLocal = JSON.parse(sessionStorage.getItem("cart") || "[]");
-
 function Home({ products, isFetching, getAllProducts, shouldFetchdata }) {
   const [cart, setCart] = useState([]);
   useEffect(() => {
@@ -26,14 +24,6 @@ function Home({ products, isFetching, getAllProducts, shouldFetchdata }) {
   useEffect(() => {
     getAllProducts();
   }, [shouldFetchdata]);
-
-  useEffect(() => {
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
-
-  // const handleAddCart = (product) => {
-  //   setCart([...cart, product]);
-  // }
 
   return (
     <Container fluid className="main-content-container px-4">

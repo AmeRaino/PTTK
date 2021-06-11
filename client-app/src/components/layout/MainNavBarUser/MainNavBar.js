@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
+import { connect } from "react-redux";
 
 function MainNavBar({cart}) {
-// const [cartCount, setCartCount] = useState(0);
+const [cartCount, setCartCount] = useState(0);
 
-// useEffect(() => {
-//   let count = 0;
-//   cart.forEach(item => {
-//     count += item.quantity;
-//   });
-// }), [cart, cartCount]
+useEffect(() => {
+  let count = 0;
+  cart.forEach(item => { 
+    count += item.qty;
+  });
+
+  setCartCount(count);
+}, [cart, cartCount]);
 
 
   return (
@@ -27,6 +29,7 @@ function MainNavBar({cart}) {
       <Link to={`/cart`}>
         <i className="fa fa-shopping-cart"></i>
         Giỏ Hàng
+        <span class="badge badge-secondary badge-pill">{cartCount}</span>
       </Link>
       <div className="search-container">
         <form action="/action_page.php">
@@ -40,4 +43,11 @@ function MainNavBar({cart}) {
   );
 }
 
-export default MainNavBar;
+
+const mapStateToProps = (store) => {
+  return {
+   cart: store.products.cart,
+  };
+};
+
+export default connect(mapStateToProps)(MainNavBar);

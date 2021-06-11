@@ -1,88 +1,69 @@
 import React, { useEffect, useState } from "react";
-import ProductHomeRowItem from "../../components/user/ProductHomeRowItem";
-import PageTitle from "../../components/common/PageTitle";
-import IMGUSER from "../../images/user-img/index.js";
 import { connect } from "react-redux";
 import { Product } from "../../actions";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardBody,
-  Button,
-} from "shards-react";
-import { Link } from "react-router-dom";
+import CartItem from "../../components/cart/CartItem";
 
-const Cart = () => {
-const [loading, setLoading] = useState(true);
-const [data, setData] = useState(null);
+const Cart = ({ cart }) => {
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [totalItem, setTotalItem] = useState(0);
 
+    useEffect(() => {
+        let items = 0;
+        let price = 0;
 
+        cart.forEach((item) => {
+            items += item.qty;
+            price += items * item.price;
+        });
 
+        setTotalItem(items);
+        setTotalPrice(price);
+    }, [cart, totalPrice, totalItem, setTotalItem, setTotalPrice])
   return (
-    <div class="border-cart-page">
-    <div class="small-container cart-page">
-        <table>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-            </tr>
-         <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="" alt=""/>
-                        <div>
-                            <p class="product-name">Product Name</p>
-                            <small>30.000 đ</small>
-                            <br/>
-                            <button>
-                                <a href="">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                </a>
-                            </button>
-                        </div>
+    <div>
+      <main class="page">
+        <section class="shopping-cart dark">
+          <div class="container">
+            <div class="content">
+              <div class="row">
+                <div class="col-md-12 col-lg-8">
+                  <div class="items">
+                    {cart.map((item) => (
+                      <CartItem key={item.id} item={item} />
+                    ))}
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                  <div class="summary">
+                    <h3>Tổng Giỏ Hàng</h3>
+                    <div class="summary-item">
+                      <span class="text">Tổng số bánh: {totalItem} bánh</span>
                     </div>
-                </td>
-                <td>
-                    <div class="input-group inline-group">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-secondary btn-minus">
-                            <i class="fa fa-minus"></i>
-                          </button>
-                        </div>
-                        <input class="form-control quantity" min="1" name="quantity" value="1" type="number"/>
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-secondary btn-plus">
-                            <i class="fa fa-plus"></i>
-                          </button>
-                        </div>
+                    <div class="summary-item">
+                      <span class="text">Tổng Tiền:</span>
+                      <span class="price">{totalPrice}</span>
                     </div>
-                </td>
-                <td>30.000 đ</td>
-            </tr>
-        </table>
-
-        <div class="total-price">
-            <table>
-                <tr>
-                    <td>Subtotal</td>
-                    <td>30.000 </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <Link to={`/checkout/`}><button>Checkout</button></Link>
-                    </td>
-                </tr>
-            </table>
-        </div>
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-lg btn-block"
+                    >
+                      Checkout
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
-</div>
   );
-}
+};
 
+const mapStateToProps = (store) => {
+  return {
+    cart: store.products.cart,
+  };
+};
 
-export default Cart;
+export default connect(mapStateToProps)(Cart);

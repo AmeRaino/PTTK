@@ -62,14 +62,14 @@ export const getAllProducts = () => (dispatch) => {
   export const removeFromCart = (itemID) => ({
     type: types.REMOVE_FROM_CART,
     payload: {
-      itemID,
+      id: itemID,
     },
   });
   
   export const adjustQTYCart = (itemID, value) => ({
     type: types.REMOVE_FROM_CART,
     payload: {
-      itemID,
+      id: itemID,
       qty: value,
     },
   });
