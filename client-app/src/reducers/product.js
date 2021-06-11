@@ -2,13 +2,16 @@ import {
   RECEIVE_PRODUCT,
   PRODUCTS_DATA_SHOULD_FETCH,
   CURRENT_PRODUCT_UPDATE,
+  ADJUST_QTY_CART,
+  REMOVE_FROM_CART,
+  STORE_IN_CART,
 } from "../actions/types";
 
 const initialState = {
   products: [],
   isFetching: true,
   shouldFetchdata: false,
-  productsInCart: [],
+  cart: [],
 };
 
 const products = (state = initialState, action) => {
@@ -29,6 +32,36 @@ const products = (state = initialState, action) => {
       return {
         ...state,
         shouldFetchdata: true,
+      };
+    case STORE_IN_CART:
+      const item = state.products.find((prod) => prod.id === action.payload.id);
+      const inCart = state.cart.find((item) =>
+        item.id === action.payload.id ? true : false
+      );
+      return {
+        ...state,
+        cart: inCart
+          ? state.cart.map((item) =>
+              item.id === action.payload.id
+                ? { ...item, qty: item.qty + 1 }
+                : item
+            )
+          : [...state.cart, { ...item, qty: 1 }],
+      };
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
+      };
+    case ADJUST_QTY_CART:
+      return {
+        ...state,
+        cart: state.cart.map(
+          (item) =>
+            (item.id = action.payload.id
+              ? { ...item, qty: action.payload.qty }
+              : item)
+        ),
       };
     default:
       return state;

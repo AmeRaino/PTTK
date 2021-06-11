@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PageTitle from "../../components/common/PageTitle";
 import { connect } from "react-redux";
-import { Cart } from "../../actions";
+import { Product } from "../../actions";
 import store from "../../store";
 import {
   Container,
@@ -69,7 +69,7 @@ function ProductDetail({ product, cart }) {
                   <div class="row" style={{ paddingTop: "20px" }}>
                     <div class="col-sm-6">
                       <p class="add-to-cart">
-                        <button id="add-cart" onClick={() => cart(data)}>
+                        <button id="add-cart" onClick={() => cart(data.id)}>
                           <i class="fa fa-shopping-cart" aria-hidden="true"></i>{" "}
                           Add to Cart
                         </button>
@@ -100,7 +100,7 @@ function mapToProps(store, props) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    cart: (data) => dispatch(Cart.addToCart(data)),
+    cart: (id) => dispatch(Product.addToCart(id)),
   }
 }
 export default connect(mapToProps, mapDispatchToProps)(ProductDetail);

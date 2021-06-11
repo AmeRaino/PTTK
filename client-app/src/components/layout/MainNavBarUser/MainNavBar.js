@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function MainNavBar(props) {
+
+function MainNavBar({cart}) {
+// const [cartCount, setCartCount] = useState(0);
+
+// useEffect(() => {
+//   let count = 0;
+//   cart.forEach(item => {
+//     count += item.quantity;
+//   });
+// }), [cart, cartCount]
+
+
   return (
     <div className="topnav">
       <Link to={`/home`}>
