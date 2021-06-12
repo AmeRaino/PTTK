@@ -1,39 +1,29 @@
 import React, { useEffect, useState } from "react";
-import ProductHomeRowItem from "../../components/user/ProductHomeRowItem";
 import PageTitle from "../../components/common/PageTitle";
-import IMGUSER from "../../images/user-img/index.js";
 import { connect } from "react-redux";
-import { Product } from "../../actions";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardBody,
-  Button,
-} from "shards-react";
+import { Order } from "../../actions";
+import { Container, Row, Col, Card, CardBody } from "shards-react";
+import moment from "moment";
 
-function Checkout(props) {
+function Checkout({ orders, getOrderByIdCus }) {
+  useEffect(() => {
+    getOrderByIdCus(1);
+  }, []);
+
+  // useEffect(() => {
+  //   getOrderByIdCus(1);
+  // }, [orders]);
   return (
     <Container fluid className="main-content-container px-4">
       {/* Page Header */}
       <Row noGutters className="page-header py-4">
-        <PageTitle
-          sm="4"
-          title="Quản lý sản phẩm"
-          subtitle="Sản phẩm"
-          className="text-sm-left"
-        />
+        <PageTitle sm="4" title="Danh sách đơn hàng" className="text-sm-left" />
       </Row>
 
       {/* Default Light Table */}
       <Row>
         <Col>
           <Card small className="mb-4">
-            <CardHeader className="border-bottom">
-              <h6 className="m-0">Danh sách đơn hàng</h6>
-            </CardHeader>
             <CardBody className="p-0 pb-3">
               <table className="table mb-0">
                 <thead className="bg-light">
@@ -49,13 +39,7 @@ function Checkout(props) {
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>123</td>
-                    <td>123</td>
-                    <td>123</td>
-                  </tr>
-                </tbody>
+                <tbody>{orders.map((item) => row(item))}</tbody>
               </table>
             </CardBody>
           </Card>
@@ -65,4 +49,22 @@ function Checkout(props) {
   );
 }
 
-export default Checkout;
+const row = (item) => {
+  return (
+    <tr>
+      <td>{item.id}</td>
+      <td>{moment(item.createdDate).format("DD/MM/YYYY hh:mm")}</td>
+      <td>123</td>
+    </tr>
+  );
+};
+
+const mapStateToProps = (store) => {
+  return {
+    orders: store.orders.orders,
+  };
+};
+
+export default connect(mapStateToProps, {
+  getOrderByIdCus: Order.getOrderByIdCus,
+})(Checkout);

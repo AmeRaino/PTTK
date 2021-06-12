@@ -98,7 +98,6 @@ namespace AiHcmCms.Services
 
         public Order Create(Order order)
         {   
-            order.Id = generateID();
             orders.Add(order);
             return order;
         }

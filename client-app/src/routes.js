@@ -30,7 +30,7 @@ export default [
   {
     path: "/overview",
     layout: DefaultLayout,
-    component: Home,
+    component: Overview,
   },
   {
     path: "/write-notification",

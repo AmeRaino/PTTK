@@ -60,8 +60,10 @@ namespace AiHcmCms.Controllers
         {
             try
             {
+                string id = orderService.generateID();
                 Order order = new Order
                 {
+                    Id = id,
                     CreatedDate = model.CreatedDate,
                     Total = model.Total,
                     IdCustomer = model.IdCustomer,
@@ -72,11 +74,12 @@ namespace AiHcmCms.Controllers
                 // create user
                 orderService.Create(order);
 
-                foreach (Cake cake in model.cakeOrders)
+                foreach (int idCake in model.idCakes)
                 {
+                    Cake cake = productService.GetById(idCake);
                     OrderDetail orderDetail = new OrderDetail
                     {
-                        IdOrder = order.Id,
+                        IdOrder = id,
                         IdProduct = cake.ID,
                         Amount = cake.Amount,
                         Price = cake.Price,

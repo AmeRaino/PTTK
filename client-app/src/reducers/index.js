@@ -6,6 +6,7 @@ import notifications, * as fromNotifications from "./notifications";
 import documents from "./document";
 import posts from "./post";
 import products from "./product";
+import orders from "./order";
 export default combineReducers({
   users,
   layout,
@@ -13,4 +14,5 @@ export default combineReducers({
   documents,
   posts,
   products,
+  orders,
 });

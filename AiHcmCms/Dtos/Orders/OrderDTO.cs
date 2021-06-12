@@ -12,7 +12,7 @@ namespace AiHcmCms.Dtos.Orders
         public float Total { get; set; }
         public int IdCustomer { get; set; }
         public string ShippingAdress { get; set; }
-        public List<Cake> cakeOrders { get; set; }
+        public List<int> idCakes { get; set; }
 
     }
 }
