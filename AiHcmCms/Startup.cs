@@ -43,6 +43,7 @@ namespace AiHcmCms
             services.AddSingleton<PostService>();
             services.AddSingleton<ProductService>();
             services.AddSingleton<OrderService>();
+            services.AddSingleton<EndUserService>();
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
