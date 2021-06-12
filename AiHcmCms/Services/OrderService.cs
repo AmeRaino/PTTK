@@ -1,4 +1,5 @@
 ﻿using AiHcmCms.Models.Order;
+using AiHcmCms.Models.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,12 @@ namespace AiHcmCms.Services
     public interface IOrderService
     {
         IEnumerable<Order> GetAll();
-        IEnumerable<Order> GetAllById(string id);
+        IEnumerable<Order> GetAllById(int id);
         Order GetById(string id);
         Order Create(Order order);
+        OrderDetail CreateOrderDetail(OrderDetail orderDetail);
+        IEnumerable<OrderDetail> GetAllOrder();
+        IEnumerable<OrderDetail> GetAllOrderDetailById(string id);
         //Order Update(Order order);
         string generateID();
     }
@@ -19,6 +23,7 @@ namespace AiHcmCms.Services
     public class OrderService: IOrderService
     {
         private static List<Order> orders = new List<Order>();
+        private static List<OrderDetail> ordersDetail = new List<OrderDetail>();
         public OrderService()
         {
             orders.Add(new Order
@@ -65,22 +70,61 @@ namespace AiHcmCms.Services
 
             });
 
+            ordersDetail.Add(new OrderDetail
+            {
+                Id = generateID(),
+                IdOrder = orders.ElementAt(0).Id,
+                Amount = 2,
+                IdProduct = 1,
+                Price = 10000,
+            });
+
+            ordersDetail.Add(new OrderDetail
+            {
+                Id = generateID(),
+                IdOrder = orders.ElementAt(0).Id,
+                Amount = 3,
+                IdProduct = 2,
+                Price = 10000,
+            });
+
         }
-        public IEnumerable<Order> GetAllById(string id)
+        public IEnumerable<Order> GetAllById(int id)
         {
-            return ((IEnumerable<Order>)orders).ToList().Where(x => x.Id == id);
+            IEnumerable<Order> list;
+            list = orders.Where(x => x.IdCustomer == id);
+            return list;
         }
 
         public Order Create(Order order)
-        {
+        {   
             order.Id = generateID();
             orders.Add(order);
             return order;
         }
 
+        public OrderDetail CreateOrderDetail(OrderDetail orderDetail)
+        {
+            orderDetail.Id = generateID();
+            ordersDetail.Add(orderDetail);
+            return orderDetail;
+
+        } 
+            
+
         public IEnumerable<Order> GetAll()
         {
             return ((IEnumerable<Order>)orders).ToList();
+        }
+
+        public IEnumerable<OrderDetail> GetAllOrder()
+        {
+            return ((IEnumerable<OrderDetail>)ordersDetail).ToList();
+        }
+
+        public IEnumerable<OrderDetail> GetAllOrderDetailById(string id)
+        {
+            return ((IEnumerable<OrderDetail>)ordersDetail).ToList().Where(orderDetail => orderDetail.IdOrder == id);
         }
 
         public Order GetById(string id)

@@ -12,6 +12,7 @@ namespace AiHcmCms.Services
         Cake GetById(int id);
         Cake Create(Cake cake);
         Cake Update(Cake cake);
+        Cake UpdateAmount(Cake cake);
         void Delete(int id);
     }
     public class ProductService : IProductService
@@ -150,6 +151,21 @@ namespace AiHcmCms.Services
 
             if (!string.IsNullOrWhiteSpace(cake.Avatar))
                 found.Avatar = cake.Avatar;
+
+            return found;
+        }
+
+        public Cake UpdateAmount(Cake cake)
+        {
+            Cake found = cakes.Where(n => n.ID == cake.ID).FirstOrDefault();
+            if (found == null)
+                throw new ApplicationException("User not found");
+
+            //if (!string.IsNullOrWhiteSpace(user.Username) && user.Username != found.Username)
+            //    found.Username = user.Username;
+
+            if (cake.Amount > -1)
+                found.Amount = found.Amount - cake.Amount;
 
             return found;
         }
