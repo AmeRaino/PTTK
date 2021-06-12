@@ -55,9 +55,8 @@ namespace AiHcmCms.Controllers
         }
 
 
-        [AllowAnonymous]
         [HttpPost("createorder")]
-        public IActionResult createOrder([FromBody] Order model, AddOrderDetail modelDetail)
+        public IActionResult createOrder([FromBody] OrderDTO model)
         {
             try
             {
@@ -73,7 +72,7 @@ namespace AiHcmCms.Controllers
                 // create user
                 orderService.Create(order);
 
-                foreach(Cake cake in modelDetail.cakeOrders)
+                foreach (Cake cake in model.cakeOrders)
                 {
                     OrderDetail orderDetail = new OrderDetail
                     {
@@ -81,7 +80,7 @@ namespace AiHcmCms.Controllers
                         IdProduct = cake.ID,
                         Amount = cake.Amount,
                         Price = cake.Price,
-                       Total = modelDetail.Total,
+                        Total = cake.Price * cake.Amount,
                     };
 
                     orderService.CreateOrderDetail(orderDetail);

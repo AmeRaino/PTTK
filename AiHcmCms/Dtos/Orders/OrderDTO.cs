@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace AiHcmCms.Dtos.Orders
 {
-    public class AddOrderDetail
+    public class OrderDTO
     {
-        public List<Cake> cakeOrders { get; set; }
+        public long CreatedDate { get; set; }
         public float Total { get; set; }
+        public int IdCustomer { get; set; }
+        public string ShippingAdress { get; set; }
+        public List<Cake> cakeOrders { get; set; }
 
     }
 }
