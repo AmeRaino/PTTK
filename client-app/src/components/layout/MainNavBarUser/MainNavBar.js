@@ -3,18 +3,22 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-function MainNavBar({cart}) {
-const [cartCount, setCartCount] = useState(0);
+function MainNavBar({ cart }) {
+  const [cartCount, setCartCount] = useState(0);
 
-useEffect(() => {
-  let count = 0;
-  cart.forEach(item => { 
-    count += item.qty;
-  });
+  useEffect(() => {
+    let count = 0;
+    cart.forEach((item) => {
+      count += item.qty;
+    });
 
-  setCartCount(count);
-}, [cart, cartCount]);
+    setCartCount(count);
+  }, [cart, cartCount]);
 
+  const logout = () => {
+    sessionStorage.removeItem("endUserData");
+    window.location.reload();
+  };
 
   return (
     <div className="topnav">
@@ -22,31 +26,26 @@ useEffect(() => {
         <i className="fa fa-home"></i>
         Trang Chủ
       </Link>
-      <Link to={`#`}>
+      <Link to={`/order-history`}>
         <i className="fa fa-user"></i>
-        Tài Khoản
+        Lịch sử đơn hàng
       </Link>
       <Link to={`/cart`}>
         <i className="fa fa-shopping-cart"></i>
         Giỏ Hàng
         <span class="badge badge-secondary badge-pill">{cartCount}</span>
       </Link>
-      <div className="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search" />
-          <button type="submit">
-            <i className="fa fa-search"></i>
-          </button>
-        </form>
-      </div>
+      <a href="#" onClick={logout}>
+        <i className="fa fa-sign-out-alt mr-2"></i>
+        Đăng xuất
+      </a>
     </div>
   );
 }
 
-
 const mapStateToProps = (store) => {
   return {
-   cart: store.products.cart,
+    cart: store.products.cart,
   };
 };
 

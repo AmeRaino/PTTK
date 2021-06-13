@@ -4,7 +4,7 @@ import routes from "./routes";
 import withTracker from "./withTracker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./shards-dashboard/styles/shards-dashboards.1.1.0.min.css";
-import Login from "./components/login/Login";
+import Login from "./views/User/Login";
 import { Provider } from "react-redux";
 import store from "./store";
 import { storeCurrentUser } from "./actions/user";
@@ -14,23 +14,23 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: sessionStorage.getItem("token")
-        ? sessionStorage.getItem("token")
+      endUserData: sessionStorage.getItem("endUserData")
+        ? sessionStorage.getItem("endUserData")
         : "",
     };
   }
 
-  handleLogin = (userInfo) => {
-    sessionStorage.setItem("token", JSON.stringify(userInfo));
-    this.setState({ token: userInfo });
+  handleLogin = (endUserData) => {
+    sessionStorage.setItem("endUserData", JSON.stringify(endUserData));
+    this.setState({ endUserData: endUserData });
   };
 
   componentWillUnmount() {}
 
   render() {
     // store.dispatch(getAllNotifications());
-    if (!sessionStorage.getItem("token")) {
-      return <Login handleLogin={(token) => this.handleLogin(token)} />;
+    if (!sessionStorage.getItem("endUserData")) {
+      return <Login handleLogin={(data) => this.handleLogin(data)} />;
     }
     store.dispatch(
       storeCurrentUser(JSON.parse(sessionStorage.getItem("token")))

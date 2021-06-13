@@ -1,0 +1,16 @@
+@import "./styles/custom.css";
+
+@media (max-width: 767px) {
+  /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+  body {
+    /* padding-top: 50px; */
+  }
+}
+
+@import "./styles/home.css";
+
+/* @import "./styles/productDetail.css"; */
+
+/* @import "./styles/cart.css"; */
+
+/* @import "./styles/checkout.css"; */

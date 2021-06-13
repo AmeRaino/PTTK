@@ -50,9 +50,9 @@ function Checkout({ orders, getOrderByIdCus }) {
 const row = (item) => {
   return (
     <tr>
-       <Link to={`/order-detail/${item.id}`}>
-      <td>{item.id}</td>
-      </Link>
+      <td>
+        <Link to={`/order-detail/${item.id}`}>{item.id}</Link>
+      </td>
       <td>{moment(item.createdDate).format("DD/MM/YYYY hh:mm")}</td>
       <td>{item.total}</td>
     </tr>

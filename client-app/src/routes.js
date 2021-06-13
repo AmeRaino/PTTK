@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 // Layout Types
-import { DefaultLayout, DefaultUserLayout } from "./layouts";
+import { DefaultUserLayout } from "./layouts";
 
 // Route Views
 import Overview from "./views/Overview";
@@ -27,68 +27,8 @@ export default [
   {
     path: "/",
     exact: true,
-    layout: DefaultLayout,
+    layout: DefaultUserLayout,
     component: () => <Redirect to="/home" />,
-  },
-  {
-    path: "/overview",
-    layout: DefaultLayout,
-    component: Overview,
-  },
-  {
-    path: "/write-notification",
-    layout: DefaultLayout,
-    component: AddNewPost,
-  },
-  {
-    path: "/notification/:id",
-    layout: DefaultLayout,
-    component: NotificationDetail,
-  },
-  {
-    path: "/document",
-    layout: DefaultLayout,
-    component: Documents,
-  },
-  {
-    path: "/application",
-    layout: DefaultLayout,
-    component: Applications,
-  },
-  {
-    path: "/user",
-    layout: DefaultLayout,
-    component: Users,
-  },
-  {
-    path: "/user-profile",
-    layout: DefaultLayout,
-    component: UserProfile,
-  },
-  {
-    path: "/blog-posts",
-    layout: DefaultLayout,
-    component: BlogPost,
-  },
-  {
-    path: "/blog-post/:id",
-    layout: DefaultLayout,
-    component: PreviewPost,
-  },
-  {
-    path: "/product",
-    layout: DefaultLayout,
-    component: Product,
-  },
-  {
-    path: "/orderadmin",
-    layout: DefaultLayout,
-    component: OrderAdmin,
-  },
-  {
-    path: "/orderadmin-detail/:id",
-    layout: DefaultLayout,
-    component: OrderAminDetail,
   },
   {
     path: "/home",
@@ -111,7 +51,7 @@ export default [
     component: ListProduct,
   },
   {
-    path: "/checkout",
+    path: "/order-history",
     layout: DefaultUserLayout,
     component: Checkout,
   },
