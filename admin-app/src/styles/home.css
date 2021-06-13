@@ -1,0 +1,145 @@
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color:whitesmoke;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    color: black;
+  }
+  
+  .topnav .search-container {
+    float: right;
+  }
+  
+  .topnav input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+  
+  .topnav .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .topnav .search-container button:hover {
+    background: #ccc;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav .search-container {
+      float: none;
+    }
+    .topnav a, .topnav input[type=text], .topnav .search-container button {
+      float: none;
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 14px;
+    }
+    .topnav input[type=text] {
+      border: 1px solid #ccc;  
+    }
+  }
+  
+  .logo{
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  .background{
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-size: cover;
+  }
+  
+  .our-collection{
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    text-align: center;
+  }
+  
+  .product-name{
+    color: black;
+  }
+  
+  
+  
+  .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+
+
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-size: cover;
+}
+
+/* Make the image responsive */
+.container img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btnBuy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgb(82, 77, 77);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  opacity: 0.5;
+}
+
+.container .btnBuy:hover {
+  opacity: 0.9;
+  color: white;
+}

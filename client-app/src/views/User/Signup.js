@@ -33,10 +33,10 @@ class Signup extends React.Component {
       invalidUsernameMessage: "",
       invalidPasswordMessage: "",
     };
-    this.confirmLogin = this.confirmLogin.bind(this);
+    this.confirmSignup = this.confirmSignup.bind(this);
   }
 
-  async confirmLogin() {
+  async confirmSignup() {
     var name = this.state.name;
     var username = this.state.username;
     var password = this.state.password;
@@ -80,7 +80,7 @@ class Signup extends React.Component {
   componentDidMount() {
     document.addEventListener("keyup", (event) => {
       if (event.keyCode === 13 && !this.state.loading) {
-        this.confirmLogin();
+        this.confirmSignup();
       }
     });
   }
@@ -141,7 +141,7 @@ class Signup extends React.Component {
                   <Button
                     className="btn-block"
                     theme="accent"
-                    onClick={this.confirmLogin}
+                    onClick={this.confirmSignup}
                   >
                     Đăng ký
                   </Button>

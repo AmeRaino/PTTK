@@ -45,7 +45,18 @@ namespace AiHcmCms.Controllers
         [HttpGet("getorderdetailbyidord/{id}")]
         public IActionResult Get(string id)
         {
-            return Ok(orderService.GetAllOrderDetailById(id));
+            Order order = orderService.GetById(id);
+            List<int> idProducts = new List<int>();
+            IEnumerable<OrderDetail> listOrdDetail = orderService.GetAllOrderDetailById(id);
+
+            var cakes = from product in productService.GetAll()
+                         join detail in listOrdDetail on product.ID equals detail.IdProduct
+                         select new { quantity = detail.Amount, price = detail.Price, total = detail.Total, product.Name, product.Avatar, categoryName = product.Category.Name };
+            return Ok(new
+            {
+                order,
+                listDetails = cakes,
+            }); 
         }
 
         [HttpGet("getallorderdetail")]

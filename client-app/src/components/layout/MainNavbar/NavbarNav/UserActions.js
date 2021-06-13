@@ -14,7 +14,7 @@ const UserActions = ({ user }) => {
   const [visible, setVisible] = useState(false);
 
   const logout = () => {
-    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("adminData");
     window.location.reload();
   };
 

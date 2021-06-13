@@ -61,11 +61,12 @@ const Cart = ({ cart }) => {
                       <span class="text">Tổng Tiền:</span>
                       <span class="price">{totalPrice}</span>
                     </div>
-                    <Link to={`/checkout/`}>
+                    <Link to={`/order-history`}>
                       <button
                         onClick={checkOut}
                         type="button"
-                        class="btn btn-primary btn-lg btn-block">
+                        class="btn btn-primary btn-lg btn-block"
+                      >
                         Checkout
                       </button>
                     </Link>

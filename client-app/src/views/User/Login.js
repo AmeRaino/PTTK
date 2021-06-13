@@ -29,6 +29,7 @@ class Login extends React.Component {
       invalidUsernameMessage: "",
       invalidPasswordMessage: "",
     };
+    this.confirmLogin = this.confirmLogin.bind(this);
   }
 
   async confirmLogin() {
