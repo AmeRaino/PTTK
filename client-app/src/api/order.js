@@ -11,10 +11,20 @@ async function getOrderByIdCus(id) {
     return [];
   }
 
+  async function getAllOrder() {
+    try {
+      const response = await axios.get(`${Constants.ORDER_API_URL}`, {});
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+    return [];
+  }
+
   async function insert(order) {
     try {
       const response = await axios.post(`${Constants.ORDER_API_URL}/createorder`, {
-        total: order.firstName,
+        total: order.total,
         idCustomer: order.idCustomer,
         shippingAdress: order.shippingAdress,
         idCakes: order.details,
@@ -28,8 +38,20 @@ async function getOrderByIdCus(id) {
   }
   
 
+  async function getAllProdInOrdDetail(id) {
+    try {
+      const response = await axios.get(`${Constants.ORDER_API_URL}/getAllProductInOrderDetail/${id}`, {});
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+    return [];
+  }
+
 
 export default{
     getOrderByIdCus,
     insert,
+    getAllProdInOrdDetail,
+    getAllOrder,
   };

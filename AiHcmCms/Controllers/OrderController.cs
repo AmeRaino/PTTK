@@ -55,6 +55,26 @@ namespace AiHcmCms.Controllers
         }
 
 
+
+        [HttpGet("getAllProductInOrderDetail/{id}")]
+        public IActionResult getAllProdIdInOrdDetail(string id)
+        {
+            List<int> idProducts = new List<int>();
+            IEnumerable<OrderDetail> listOrdDetail = orderService.GetAllOrderDetailById(id);
+            foreach(OrderDetail orderDetail in listOrdDetail)
+            {
+                idProducts.Add(orderDetail.IdProduct);
+            }
+            List<Cake> cakes = new List<Cake>();
+            foreach(int idPro in idProducts)
+            {
+                Cake cake = productService.GetById(idPro);
+                cakes.Add(cake);
+            }
+            return Ok(cakes);
+        }
+
+
         [HttpPost("createorder")]
         public IActionResult createOrder([FromBody] OrderDTO model)
         {

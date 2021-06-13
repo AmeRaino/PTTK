@@ -20,12 +20,15 @@ import ProductDetail from "./views/User/ProductDetail";
 import Cart from "./views/User/Cart";
 import ListProduct from "./views/User/ListProduct";
 import Checkout from "./views/User/Checkout";
+import OrderDetail from "./views/User/OrderDetail";
+import OrderAdmin from "./views/OrderAdmin";
+import OrderAminDetail from "./views/OrderAdminDetail";
 export default [
   {
     path: "/",
     exact: true,
     layout: DefaultLayout,
-    component: () => <Redirect to="/overview" />,
+    component: () => <Redirect to="/home" />,
   },
   {
     path: "/overview",
@@ -78,6 +81,16 @@ export default [
     component: Product,
   },
   {
+    path: "/orderadmin",
+    layout: DefaultLayout,
+    component: OrderAdmin,
+  },
+  {
+    path: "/orderadmin-detail/:id",
+    layout: DefaultLayout,
+    component: OrderAminDetail,
+  },
+  {
     path: "/home",
     layout: DefaultUserLayout,
     component: Home,
@@ -101,5 +114,10 @@ export default [
     path: "/checkout",
     layout: DefaultUserLayout,
     component: Checkout,
+  },
+  {
+    path: "/order-detail/:id",
+    layout: DefaultUserLayout,
+    component: OrderDetail,
   },
 ];

@@ -17,3 +17,29 @@ export const createOrder = (data) => {
     return response;
   });
 };
+
+
+const receiveAllProInOrdDetail = (idOrd) => ({
+  type: types.REICEVE_ORDER_BY_ID_ORD,
+  idOrd,
+});
+
+
+export const getAllProdInOrdDetail = (id) => (dispatch) => {
+  order.getAllProdInOrdDetail(id).then((response) => {
+    dispatch(receiveAllProInOrdDetail(response.data));
+  });
+};
+
+
+const receiveAllOrder = (orders) => ({
+  type: types.REICEVE_ALL_ORDER,
+  orders,
+});
+
+
+export const getAllOrder = () => (dispatch) => {
+  order.getAllOrder().then((response) => {
+    dispatch(receiveAllOrder(response.data));
+  });
+};
