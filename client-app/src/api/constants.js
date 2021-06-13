@@ -12,3 +12,4 @@ export const POST_API_URL = HOST + "/api/post";
 export const PRODUCT_API_URL = HOST + "/api/product";
 
 export const END_USER_API_URL = HOST + "/api/enduser";
+export const ORDER_API_URL = HOST + "/api/order";

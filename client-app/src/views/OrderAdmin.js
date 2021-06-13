@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import PageTitle from "../../components/common/PageTitle";
+import PageTitle from "../components/common/PageTitle";
 import { connect } from "react-redux";
-import { Order } from "../../actions";
+import { Order } from "../actions";
 import { Container, Row, Col, Card, CardBody } from "shards-react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-function Checkout({ orders, getOrderByIdCus }) {
+function OrderAdmin({ orders, getAllOrder }) {
   useEffect(() => {
-    getOrderByIdCus(1);
+    getAllOrder();
   }, []);
 
   return (
@@ -50,7 +50,7 @@ function Checkout({ orders, getOrderByIdCus }) {
 const row = (item) => {
   return (
     <tr>
-       <Link to={`/order-detail/${item.id}`}>
+       <Link to={`/orderadmin-detail/${item.id}`}>
       <td>{item.id}</td>
       </Link>
       <td>{moment(item.createdDate).format("DD/MM/YYYY hh:mm")}</td>
@@ -61,10 +61,10 @@ const row = (item) => {
 
 const mapStateToProps = (store) => {
   return {
-    orders: store.orders.orders,
+    orders: store.orders.allOrders,
   };
 };
 
 export default connect(mapStateToProps, {
-  getOrderByIdCus: Order.getOrderByIdCus,
-})(Checkout);
+    getAllOrder: Order.getAllOrder,
+})(OrderAdmin);

@@ -1,24 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { Product } from "../../actions";
+import { createOrder } from "../../actions/order";
 import CartItem from "../../components/cart/CartItem";
+import { Link } from "react-router-dom";
 
 const Cart = ({ cart }) => {
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [totalItem, setTotalItem] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItem, setTotalItem] = useState(0);
 
-    useEffect(() => {
-        let items = 0;
-        let price = 0;
+  const [shippingAdress, setShippingAdress] = useState("");
 
-        cart.forEach((item) => {
-            items += item.qty;
-            price += items * item.price;
-        });
+  useEffect(() => {
+    let items = 0;
+    let price = 0;
 
-        setTotalItem(items);
-        setTotalPrice(price);
-    }, [cart, totalPrice, totalItem, setTotalItem, setTotalPrice])
+    cart.forEach((item) => {
+      items += item.qty;
+      price += items * item.price;
+    });
+
+    setTotalItem(items);
+    setTotalPrice(price);
+  }, [cart, totalPrice, totalItem, setTotalItem, setTotalPrice]);
+
+  const checkOut = () => {
+    var details = [];
+    cart.forEach((item) => {
+      details.push(item.id);
+    });
+    var order = {
+      total: totalPrice || "",
+      idCustomer: 1 || 0,
+      shippingAdress: "",
+      details: details,
+      createdDate: null,
+    };
+    createOrder(order);
+  };
   return (
     <div>
       <main class="page">
@@ -43,12 +61,14 @@ const Cart = ({ cart }) => {
                       <span class="text">Tổng Tiền:</span>
                       <span class="price">{totalPrice}</span>
                     </div>
-                    <button
-                      type="button"
-                      class="btn btn-primary btn-lg btn-block"
-                    >
-                      Checkout
-                    </button>
+                    <Link to={`/checkout/`}>
+                      <button
+                        onClick={checkOut}
+                        type="button"
+                        class="btn btn-primary btn-lg btn-block">
+                        Checkout
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
