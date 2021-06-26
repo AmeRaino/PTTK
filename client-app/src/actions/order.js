@@ -18,6 +18,11 @@ export const createOrder = (data) => {
   });
 };
 
+export const setShouldFetchData = (should) => (dispatch) => {
+  dispatch({
+    type: types.ORDERS_DATA_SHOULD_FETCH,
+  });
+};
 
 const receiveAllProInOrdDetail = (idOrd) => ({
   type: types.REICEVE_ORDER_BY_ID_ORD,
@@ -43,3 +48,4 @@ export const getAllOrder = () => (dispatch) => {
     dispatch(receiveAllOrder(response.data));
   });
 };
+

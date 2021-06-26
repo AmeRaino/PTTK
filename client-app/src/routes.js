@@ -19,7 +19,7 @@ import Home from "./views/User/Home";
 import ProductDetail from "./views/User/ProductDetail";
 import Cart from "./views/User/Cart";
 import ListProduct from "./views/User/ListProduct";
-import Checkout from "./views/User/Checkout";
+import OrderHistory from "./views/User/OrderHistory";
 import OrderDetail from "./views/User/OrderDetail";
 import OrderAdmin from "./views/OrderAdmin";
 import OrderAminDetail from "./views/OrderAdminDetail";
@@ -53,7 +53,7 @@ export default [
   {
     path: "/order-history",
     layout: DefaultUserLayout,
-    component: Checkout,
+    component: OrderHistory,
   },
   {
     path: "/order-detail/:id",

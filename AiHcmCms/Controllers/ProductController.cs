@@ -33,8 +33,8 @@ namespace AiHcmCms.Controllers
             return Ok(productService.GetAll());
         }
 
-        [HttpGet("{getcategories}")]
-        public IActionResult Get(int id)
+        [HttpGet("getcategories")]
+        public IActionResult GetCategories()
         {
             return Ok(productService.GetCategories());
         }

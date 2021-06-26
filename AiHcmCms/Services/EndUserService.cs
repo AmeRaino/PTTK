@@ -76,6 +76,9 @@ namespace AiHcmCms.Services
             if (!string.IsNullOrWhiteSpace(user.Password))
                 found.Password = user.Password;
 
+            if (!string.IsNullOrWhiteSpace(user.Address))
+                found.Address = user.Address;
+
             return found;
         }
     }

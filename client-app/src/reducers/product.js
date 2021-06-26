@@ -46,7 +46,7 @@ const products = (state = initialState, action) => {
                 ? { ...item, qty: ++item.qty }
                 : item
             )
-          : [...state.cart, { ...item, qty: 1 }],
+          : [...state.cart, { ...item, qty: action.payload.qty }],
       };
     case REMOVE_FROM_CART:
       return {

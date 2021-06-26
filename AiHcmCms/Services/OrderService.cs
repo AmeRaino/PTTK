@@ -10,7 +10,7 @@ namespace AiHcmCms.Services
     public interface IOrderService
     {
         IEnumerable<Order> GetAll();
-        IEnumerable<Order> GetAllById(int id);
+        IEnumerable<Order> GetAllById(string id);
         Order GetById(string id);
         Order Create(Order order);
         OrderDetail CreateOrderDetail(OrderDetail orderDetail);
@@ -31,7 +31,7 @@ namespace AiHcmCms.Services
                 Id = generateID(),
                 CreatedDate = 1620110775822,
                 Total = 100000,
-                IdCustomer = 1,
+                IdCustomer = "guest",
                 ShippingAdress = "HCM",
                 //IsPaid = false
 
@@ -42,7 +42,7 @@ namespace AiHcmCms.Services
                 Id = generateID(),
                 CreatedDate = 1620110775822,
                 Total = 200000,
-                IdCustomer = 1,
+                IdCustomer = "guest",
                 ShippingAdress = "DN",
                 //IsPaid = false
 
@@ -53,7 +53,7 @@ namespace AiHcmCms.Services
                 Id = generateID(),
                 CreatedDate = 1620110775822,
                 Total = 150000,
-                IdCustomer = 1,
+                IdCustomer = "guest",
                 ShippingAdress = "HN",
                 //IsPaid = false
 
@@ -64,7 +64,7 @@ namespace AiHcmCms.Services
                 Id = generateID(),
                 CreatedDate = 1620110775822,
                 Total = 300000,
-                IdCustomer = 2,
+                IdCustomer = "guest1",
                 ShippingAdress = "HCM",
                 //IsPaid = false
 
@@ -89,7 +89,7 @@ namespace AiHcmCms.Services
             });
 
         }
-        public IEnumerable<Order> GetAllById(int id)
+        public IEnumerable<Order> GetAllById(string id)
         {
             IEnumerable<Order> list;
             list = orders.Where(x => x.IdCustomer == id);

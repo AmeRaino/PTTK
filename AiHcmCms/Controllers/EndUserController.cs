@@ -57,7 +57,8 @@ namespace AiHcmCms.Controllers
                 Password = model.Password,
                 Name = model.Name,
                 Email = model.Email,
-                Phone = model.Phone
+                Phone = model.Phone,
+                Address = model.Address,
             };
 
             try
@@ -68,7 +69,8 @@ namespace AiHcmCms.Controllers
                     endUser.Username,
                     endUser.Name,
                     endUser.Email,
-                    endUser.Phone
+                    endUser.Phone,
+                    endUser.Address
                 });
             }
             catch (ApplicationException ex)

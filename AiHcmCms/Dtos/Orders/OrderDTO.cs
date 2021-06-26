@@ -10,9 +10,9 @@ namespace AiHcmCms.Dtos.Orders
     {
         public long CreatedDate { get; set; }
         public float Total { get; set; }
-        public int IdCustomer { get; set; }
+        public string IdCustomer { get; set; }
         public string ShippingAdress { get; set; }
-        public List<int> idCakes { get; set; }
+        public List<Cake> Cakes { get; set; }
 
     }
 }

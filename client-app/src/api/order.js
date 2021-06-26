@@ -27,7 +27,7 @@ async function getOrderByIdCus(id) {
         total: order.total,
         idCustomer: order.idCustomer,
         shippingAdress: order.shippingAdress,
-        idCakes: order.details,
+        Cakes: order.details,
         createdDate: Date.now()
       });
       return response;

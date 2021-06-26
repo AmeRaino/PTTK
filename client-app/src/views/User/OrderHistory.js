@@ -6,10 +6,13 @@ import { Container, Row, Col, Card, CardBody } from "shards-react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-function Checkout({ orders, getOrderByIdCus }) {
+function OrderHistory({ orders, getOrderByIdCus, shouldFetchdata }) {
+var idUser = JSON.parse(sessionStorage.getItem("endUserData"))  ? JSON.parse(sessionStorage.getItem("endUserData")): "0";
   useEffect(() => {
-    getOrderByIdCus(1);
-  }, []);
+    getOrderByIdCus(idUser.username);
+  }, [shouldFetchdata]);
+
+
 
   return (
     <Container fluid className="main-content-container px-4">
@@ -62,9 +65,13 @@ const row = (item) => {
 const mapStateToProps = (store) => {
   return {
     orders: store.orders.orders,
+    currentUser: store.users.currentUser, 
+    endUser: store.endUserData,
   };
 };
 
 export default connect(mapStateToProps, {
   getOrderByIdCus: Order.getOrderByIdCus,
-})(Checkout);
+})(OrderHistory);
+
+

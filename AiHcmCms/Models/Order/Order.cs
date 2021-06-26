@@ -10,7 +10,7 @@ namespace AiHcmCms.Models.Order
         public string Id { get; set; }
         public long CreatedDate { get; set; }
         public float Total { get; set; }
-        public int IdCustomer { get; set; }
+        public string IdCustomer { get; set; }
         public string ShippingAdress  { get; set; }
         //public bool IsPaid { get; set; }
     }

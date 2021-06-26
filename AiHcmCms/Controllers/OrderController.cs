@@ -37,7 +37,7 @@ namespace AiHcmCms.Controllers
         }
 
         [HttpGet("getorderbyidcus/{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetOrderByIdCustomer(string id)
         {
             return Ok(orderService.GetAllById(id));
         }
@@ -105,9 +105,9 @@ namespace AiHcmCms.Controllers
                 // create user
                 orderService.Create(order);
 
-                foreach (int idCake in model.idCakes)
+                foreach (Cake cake in model.Cakes)
                 {
-                    Cake cake = productService.GetById(idCake);
+                    //Cake cake = productService.GetById(idCake);
                     OrderDetail orderDetail = new OrderDetail
                     {
                         IdOrder = id,

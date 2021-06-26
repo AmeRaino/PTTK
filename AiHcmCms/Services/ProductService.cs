@@ -82,6 +82,30 @@ namespace AiHcmCms.Services
 
             });
 
+            cakes.Add(new Cake
+            {
+                ID = Count++,
+                Name = "Dooonut Pink Cream 3",
+                Category = GetCategoryByID(1),
+                Discount = 0,
+                Price = 1.3f,
+                Amount = 11,
+                Avatar = baseImgUrl + "_donut_orion.jpg"
+
+            });
+
+            cakes.Add(new Cake
+            {
+                ID = Count++,
+                Name = "Dooonut Pink Cream 3",
+                Category = GetCategoryByID(1),
+                Discount = 0,
+                Price = 1.3f,
+                Amount = 11,
+                Avatar = baseImgUrl + "_donut_orion.jpg"
+
+            });
+
         }
         //private static UserService _instance;
 
@@ -100,7 +124,7 @@ namespace AiHcmCms.Services
 
         public IEnumerable<Category> GetCategories()
         {
-            return categories;
+            return ((IEnumerable<Category>)categories).ToList();
         }
 
         public Cake Create(Cake cake)

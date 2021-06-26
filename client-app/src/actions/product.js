@@ -52,10 +52,11 @@ export const getAllProducts = () => (dispatch) => {
   };
 
 
-  export const addToCart = (itemID) => ({
+  export const addToCart = (itemID, value) => ({
     type: types.STORE_IN_CART,
     payload: {
       id: itemID,
+      qty: value,
     },
   });
   
