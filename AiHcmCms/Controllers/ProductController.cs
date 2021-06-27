@@ -1,4 +1,5 @@
-﻿using AiHcmCms.Dtos.Products;
+﻿using AiHcmCms.Dtos.Posts;
+using AiHcmCms.Dtos.Products;
 using AiHcmCms.Models.Products;
 using AiHcmCms.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -46,7 +48,43 @@ namespace AiHcmCms.Controllers
             return Ok(productService.GetById(id));
         }
 
+        [HttpPost("UploadImage")]
+        public IActionResult UploadImage([FromForm] ImageUpload objFile)
+        {
+            try
+            {
+                if (objFile.upload.Length > 0)
+                {
+                    if (!Directory.Exists(hostingEnvironment.WebRootPath + "\\Upload\\"))
+                    {
+                        Directory.CreateDirectory(hostingEnvironment.WebRootPath + "\\Uploads\\");
+                    }
+                    var path = "\\Uploads\\" + objFile.upload.FileName;
+                    using (FileStream fileStream = System.IO.File.Create(hostingEnvironment.WebRootPath + path))
+                    {
+                        objFile.upload.CopyTo(fileStream);
+                        fileStream.Flush();
 
+                        return Ok(new
+                        {
+                            // Nếu dùng để trả cho web thì dùng dòng này
+                            url = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" + path
+
+                            // Còn nếu muốn dùng cho máy ảo thì chỉ trả về path thôi
+                            // url = path
+                        });
+                    }
+                }
+                else
+                {
+                    return BadRequest("failed");
+                }
+            }
+            catch (ApplicationException ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }
+        }
 
         [AllowAnonymous]
         [HttpPost("addproduct")]
