@@ -1,5 +1,4 @@
-﻿using AiHcmCms.Models.Order;
-using AiHcmCms.Models.Products;
+﻿using AiHcmCms.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ namespace AiHcmCms.Services
     public interface IOrderService
     {
         IEnumerable<Order> GetAll();
-        IEnumerable<Order> GetAllById(string id);
+        IEnumerable<Order> GetAllById(int id);
         Order GetById(string id);
         Order Create(Order order);
         OrderDetail CreateOrderDetail(OrderDetail orderDetail);
@@ -31,7 +30,7 @@ namespace AiHcmCms.Services
                 Id = generateID(),
                 CreatedDate = 1620110775822,
                 Total = 100000,
-                IdCustomer = "guest",
+                IdCustomer = 1,
                 ShippingAdress = "HCM",
                 //IsPaid = false
 
@@ -42,7 +41,7 @@ namespace AiHcmCms.Services
                 Id = generateID(),
                 CreatedDate = 1620110775822,
                 Total = 200000,
-                IdCustomer = "guest",
+                IdCustomer = 1,
                 ShippingAdress = "DN",
                 //IsPaid = false
 
@@ -53,7 +52,7 @@ namespace AiHcmCms.Services
                 Id = generateID(),
                 CreatedDate = 1620110775822,
                 Total = 150000,
-                IdCustomer = "guest",
+                IdCustomer = 1,
                 ShippingAdress = "HN",
                 //IsPaid = false
 
@@ -64,7 +63,7 @@ namespace AiHcmCms.Services
                 Id = generateID(),
                 CreatedDate = 1620110775822,
                 Total = 300000,
-                IdCustomer = "guest1",
+                IdCustomer = 1,
                 ShippingAdress = "HCM",
                 //IsPaid = false
 
@@ -89,7 +88,7 @@ namespace AiHcmCms.Services
             });
 
         }
-        public IEnumerable<Order> GetAllById(string id)
+        public IEnumerable<Order> GetAllById(int id)
         {
             IEnumerable<Order> list;
             list = orders.Where(x => x.IdCustomer == id);

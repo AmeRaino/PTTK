@@ -1,5 +1,5 @@
-﻿using AiHcmCms.Models.Notifications;
-using AiHcmCms.Models.Users;
+﻿using AiHcmCms.Models;
+using AiHcmCms.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

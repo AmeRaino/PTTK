@@ -1,4 +1,4 @@
-﻿using AiHcmCms.Models.Notifications;
+﻿using AiHcmCms.Models;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;

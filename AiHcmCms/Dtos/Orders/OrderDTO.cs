@@ -1,4 +1,4 @@
-﻿using AiHcmCms.Models.Products;
+﻿using AiHcmCms.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace AiHcmCms.Dtos.Orders
     {
         public long CreatedDate { get; set; }
         public float Total { get; set; }
-        public string IdCustomer { get; set; }
+        public int IdCustomer { get; set; }
         public string ShippingAdress { get; set; }
         public List<Cake> Cakes { get; set; }
 

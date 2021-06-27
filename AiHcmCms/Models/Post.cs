@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AiHcmCms.Models.Posts
+namespace AiHcmCms.Models
 {
     public class Post
     {

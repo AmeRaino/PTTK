@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AiHcmCms.Models.Notifications
+namespace AiHcmCms.Models
 {
     public class UserNotification
     {

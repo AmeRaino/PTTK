@@ -1,6 +1,6 @@
 ﻿using AiHcmCms.Dtos.Posts;
 using AiHcmCms.Dtos.Products;
-using AiHcmCms.Models.Products;
+using AiHcmCms.Models;
 using AiHcmCms.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;

@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using AiHcmCms.Dtos.Users;
+using AiHcmCms.Models;
 using AiHcmCms.Models.Users;
 using AiHcmCms.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -41,7 +42,7 @@ namespace AiHcmCms.Controllers
                             FirstName = u.FirstName,
                             LastName = u.LastName,
                             Username = u.Username,
-                            Role = u.Role,
+                            //Role = u.Role,
                             CreatedDate = u.CreatedDate,
                             Email = u.Email,
                             Phone = u.Phone,
@@ -97,7 +98,7 @@ namespace AiHcmCms.Controllers
                 user.CreatedDate,
                 user.Email,
                 user.Phone,
-                user.Role,
+                //user.Role,
                 user.Avatar,
                 Token = tokenString
             });
@@ -118,7 +119,7 @@ namespace AiHcmCms.Controllers
                     Email = model.Email,
                     Phone = model.Phone,
                     CreatedDate = model.CreatedDate,
-                    Role = userService.GetRole(model.IdRole)
+                    //Role = userService.GetRole(model.IdRole)
                 };
 
                 // create user
@@ -141,7 +142,7 @@ namespace AiHcmCms.Controllers
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Password = model.Password,
-                Role = userService.GetRole(model.IdRole),
+                //Role = userService.GetRole(model.IdRole),
                 Email = model.Email,
                 Phone = model.Phone,
                 Avatar = model.Avatar
@@ -159,7 +160,7 @@ namespace AiHcmCms.Controllers
                     user.CreatedDate,
                     user.Email,
                     user.Phone,
-                    user.Role,
+                    //user.Role,
                     user.Avatar,
                     model.Token
                 });

@@ -1,6 +1,5 @@
 ﻿using AiHcmCms.Dtos.Orders;
-using AiHcmCms.Models.Order;
-using AiHcmCms.Models.Products;
+using AiHcmCms.Models;
 using AiHcmCms.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -37,7 +36,7 @@ namespace AiHcmCms.Controllers
         }
 
         [HttpGet("getorderbyidcus/{id}")]
-        public IActionResult GetOrderByIdCustomer(string id)
+        public IActionResult GetOrderByIdCustomer(int id)
         {
             return Ok(orderService.GetAllById(id));
         }
