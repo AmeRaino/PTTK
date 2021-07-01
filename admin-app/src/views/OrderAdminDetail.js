@@ -59,7 +59,7 @@ function OrderAdminDetail({
                         <div class="summary-item"></div>
                         <div class="summary-item">
                           <span class="text">Tổng Tiền: </span>
-                          <span class="price">{data.order.total}</span>
+                          <span class="price">20000</span>
                         </div>
                       </div>
                     </div>

@@ -37,38 +37,38 @@ namespace AiHcmCms.Services
 
             }); ;
 
-            orders.Add(new Order
-            {
-                Id = generateID(),
-                CreatedDate = 1620110775822,
-                Total = 200000,
-                IdCustomer = "guest",
-                ShippingAdress = "DN",
-                //IsPaid = false
+            //orders.Add(new Order
+            //{
+            //    Id = generateID(),
+            //    CreatedDate = 1620110775822,
+            //    Total = 200000,
+            //    IdCustomer = "guest",
+            //    ShippingAdress = "DN",
+            //    //IsPaid = false
 
-            });
+            //});
 
-            orders.Add(new Order
-            {
-                Id = generateID(),
-                CreatedDate = 1620110775822,
-                Total = 150000,
-                IdCustomer = "guest",
-                ShippingAdress = "HN",
-                //IsPaid = false
+            //orders.Add(new Order
+            //{
+            //    Id = generateID(),
+            //    CreatedDate = 1620110775822,
+            //    Total = 150000,
+            //    IdCustomer = "guest",
+            //    ShippingAdress = "HN",
+            //    //IsPaid = false
 
-            });
+            //});
 
-            orders.Add(new Order
-            {
-                Id = generateID(),
-                CreatedDate = 1620110775822,
-                Total = 300000,
-                IdCustomer = "guest1",
-                ShippingAdress = "HCM",
-                //IsPaid = false
+            //orders.Add(new Order
+            //{
+            //    Id = generateID(),
+            //    CreatedDate = 1620110775822,
+            //    Total = 300000,
+            //    IdCustomer = "guest1",
+            //    ShippingAdress = "HCM",
+            //    //IsPaid = false
 
-            });
+            //});
 
             ordersDetail.Add(new OrderDetail
             {
