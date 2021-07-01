@@ -1,4 +1,4 @@
-﻿using AiHcmCms.Models;
+﻿using AiHcmCms.Models.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;

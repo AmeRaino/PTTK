@@ -1,5 +1,5 @@
 ﻿using AiHcmCms.Dtos.EndUser;
-using AiHcmCms.Models;
+using AiHcmCms.Models.EndUser;
 using AiHcmCms.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;

@@ -1,4 +1,4 @@
-﻿using AiHcmCms.Models;
+﻿using AiHcmCms.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -46,7 +46,7 @@ namespace AiHcmCms.Services
                 Password = "admin",
                 CreatedDate = 1620110775822,
                 Avatar = "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg",
-                //Role = userRoles[0]
+                Role = userRoles[0]
             });
 
             users.Add(new User
@@ -58,7 +58,7 @@ namespace AiHcmCms.Services
                 Password = "test",
                 CreatedDate = 1620110775822,
                 Avatar = "https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg",
-                //Role = userRoles[1]
+                Role = userRoles[1]
             });
         }
         //private static UserService _instance;
@@ -129,8 +129,8 @@ namespace AiHcmCms.Services
             if (!string.IsNullOrWhiteSpace(user.Password))
                 found.Password = user.Password;
 
-            //if (user.Role != null)
-            //    found.Role = user.Role;
+            if (user.Role != null)
+                found.Role = user.Role;
 
             if (!string.IsNullOrWhiteSpace(user.Email))
                 found.Email = user.Email;

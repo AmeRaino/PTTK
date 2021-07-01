@@ -1,5 +1,7 @@
 ﻿using AiHcmCms.Dtos.Orders;
-using AiHcmCms.Models;
+using AiHcmCms.Dtos.Products;
+using AiHcmCms.Models.Order;
+using AiHcmCms.Models.Products;
 using AiHcmCms.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -36,7 +38,7 @@ namespace AiHcmCms.Controllers
         }
 
         [HttpGet("getorderbyidcus/{id}")]
-        public IActionResult GetOrderByIdCustomer(int id)
+        public IActionResult GetOrderByIdCustomer(string id)
         {
             return Ok(orderService.GetAllById(id));
         }
@@ -56,6 +58,27 @@ namespace AiHcmCms.Controllers
                 order,
                 listDetails = cakes,
             }); 
+        }
+
+
+        [HttpGet("getorderdetailbyidcus/{id}")]
+        public IActionResult GetOrderDetailByIdCus(string id)
+        {
+            IEnumerable<Order> orders = orderService.GetAllById(id);
+            List<OrderDetailDto> orderDetailDtos = new List<OrderDetailDto>();
+      
+            foreach(Order mOrder in orders)
+            {
+                Order order = orderService.GetById(mOrder.Id);
+                List<int> idProducts = new List<int>();
+                IEnumerable<OrderDetail> listOrdDetail = orderService.GetAllOrderDetailById(mOrder.Id);
+
+                var cakes = from product in productService.GetAll()
+                            join detail in listOrdDetail on product.ID equals detail.IdProduct
+                            select new { quantity = detail.Amount, price = detail.Price, total = detail.Total, product.Name, product.Avatar, categoryName = product.Category.Name };
+                orderDetailDtos.Add(new OrderDetailDto(order, cakes));
+            }
+            return Ok(orderDetailDtos);
         }
 
         [HttpGet("getallorderdetail")]

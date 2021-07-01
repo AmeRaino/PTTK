@@ -1,4 +1,4 @@
-﻿using AiHcmCms.Models;
+﻿using AiHcmCms.Models.EndUser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +21,6 @@ namespace AiHcmCms.Services
         {
             users.Add(new EndUser
             {
-                Id = 1,
                 Username = "guest",
                 Password = "guest",
                 Name = "Guest Minh Oc cho"

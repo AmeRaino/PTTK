@@ -1,4 +1,4 @@
-const HOST = "https://localhost:5001";
+const HOST = "https://localhost:44394";
 
 export const USERS_API_URL = HOST + "/api/User";
 

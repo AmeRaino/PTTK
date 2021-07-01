@@ -13,10 +13,7 @@ async function getProducts() {
 
 async function getProductById(id) {
   try {
-    const response = await axios.get(
-      `${Constants.PRODUCT_API_URL}/getproductbyid/${id}`,
-      {}
-    );
+    const response = await axios.get(`${Constants.PRODUCT_API_URL}/getproductbyid/${id}`, {});
     return response;
   } catch (error) {
     console.log(error);
@@ -26,10 +23,7 @@ async function getProductById(id) {
 
 async function getProductCategories() {
   try {
-    const response = await axios.get(
-      `${Constants.PRODUCT_API_URL}/getcategories`,
-      {}
-    );
+    const response = await axios.get(`${Constants.PRODUCT_API_URL}/getcategories`, {});
     console.log(response);
     return response.data;
   } catch (error) {
@@ -40,10 +34,7 @@ async function getProductCategories() {
 
 async function updateProduct(id, product) {
   try {
-    const response = await axios.put(
-      `${Constants.PRODUCT_API_URL}/${id}`,
-      product
-    );
+    const response = await axios.put(`${Constants.PRODUCT_API_URL}/${id}`, product);
     return response;
   } catch (error) {
     return error;
@@ -53,35 +44,13 @@ async function updateProduct(id, product) {
 
 async function insert(product) {
   try {
-    const response = await axios.post(
-      `${Constants.PRODUCT_API_URL}/addproduct`,
-      {
-        name: product.name,
-        price: product.price,
-        amount: product.amount,
-        discount: product.discount,
-        avatar: product.avatar,
-        idCategory: product.idCategory,
-      }
-    );
-    return response;
-  } catch (error) {
-    return error;
-  }
-  return null;
-}
-
-async function uploadImage(file) {
-  try {
-    let form = new FormData();
-    form.append("upload", file);
-    const response = await axios({
-      method: "post",
-      url: `${Constants.PRODUCT_API_URL}/UploadImage`,
-      data: form,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+    const response = await axios.post(`${Constants.PRODUCT_API_URL}/addproduct`, {
+      name: product.name,
+      price: product.price,
+      amount: product.amount,
+      discount: product.discount,
+      avatar: product.avatar,
+      idCategory: product.idCategory,
     });
     return response;
   } catch (error) {
@@ -90,11 +59,10 @@ async function uploadImage(file) {
   return null;
 }
 
-export default {
+export default{
   getProducts,
   getProductById,
   getProductCategories,
   updateProduct,
   insert,
-  uploadImage,
 };
