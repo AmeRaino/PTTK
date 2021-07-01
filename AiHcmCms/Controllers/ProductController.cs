@@ -30,7 +30,7 @@ namespace AiHcmCms.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(productService.GetAll());
+            return Ok(productService.GetAll().OrderByDescending(s => s.ID));
         }
 
         [HttpGet("getcategories")]

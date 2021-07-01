@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkSpace\\cms-template-master\\AiHcmCms\\AiHcmCms.csproj": {}
+    "C:\\workspace\\PTTK\\AiHcmCms\\AiHcmCms.csproj": {}
   },
   "projects": {
-    "D:\\WorkSpace\\cms-template-master\\AiHcmCms\\AiHcmCms.csproj": {
+    "C:\\workspace\\PTTK\\AiHcmCms\\AiHcmCms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkSpace\\cms-template-master\\AiHcmCms\\AiHcmCms.csproj",
+        "projectUniqueName": "C:\\workspace\\PTTK\\AiHcmCms\\AiHcmCms.csproj",
         "projectName": "AiHcmCms",
-        "projectPath": "D:\\WorkSpace\\cms-template-master\\AiHcmCms\\AiHcmCms.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkSpace\\cms-template-master\\AiHcmCms\\obj\\",
+        "projectPath": "C:\\workspace\\PTTK\\AiHcmCms\\AiHcmCms.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\workspace\\PTTK\\AiHcmCms\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +75,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

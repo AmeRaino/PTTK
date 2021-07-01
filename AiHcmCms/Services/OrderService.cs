@@ -26,16 +26,16 @@ namespace AiHcmCms.Services
         private static List<OrderDetail> ordersDetail = new List<OrderDetail>();
         public OrderService()
         {
-            orders.Add(new Order
-            {
-                Id = generateID(),
-                CreatedDate = 1620110775822,
-                Total = 100000,
-                IdCustomer = "guest",
-                ShippingAdress = "HCM",
-                //IsPaid = false
+            //orders.Add(new Order
+            //{
+            //    Id = generateID(),
+            //    CreatedDate = 1620110775822,
+            //    Total = 100000,
+            //    IdCustomer = "guest",
+            //    ShippingAdress = "HCM",
+            //    //IsPaid = false
 
-            }); ;
+            //}); ;
 
             //orders.Add(new Order
             //{
@@ -70,23 +70,23 @@ namespace AiHcmCms.Services
 
             //});
 
-            ordersDetail.Add(new OrderDetail
-            {
-                Id = generateID(),
-                IdOrder = orders.ElementAt(0).Id,
-                Amount = 2,
-                IdProduct = 1,
-                Price = 10000,
-            });
+            //ordersDetail.Add(new OrderDetail
+            //{
+            //    Id = generateID(),
+            //    IdOrder = orders.ElementAt(0).Id,
+            //    Amount = 2,
+            //    IdProduct = 1,
+            //    Price = 10000,
+            //});
 
-            ordersDetail.Add(new OrderDetail
-            {
-                Id = generateID(),
-                IdOrder = orders.ElementAt(0).Id,
-                Amount = 3,
-                IdProduct = 2,
-                Price = 10000,
-            });
+            //ordersDetail.Add(new OrderDetail
+            //{
+            //    Id = generateID(),
+            //    IdOrder = orders.ElementAt(0).Id,
+            //    Amount = 3,
+            //    IdProduct = 2,
+            //    Price = 10000,
+            //});
 
         }
         public IEnumerable<Order> GetAllById(string id)
