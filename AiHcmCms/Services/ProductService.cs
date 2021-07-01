@@ -34,160 +34,75 @@ namespace AiHcmCms.Services
                 ID = 2,
                 Name = "Cookie"
             });
-            categories.Add(new Category
-            {
-                ID = 3,
-                Name = "Birthday"
-            });
-
-            cakes.Add(new Cake
-            {
-                ID = Count++,
-                Name = "Donut Pink Cream",
-                Category = GetCategoryByID(1),
-                Discount = 0,
-                Price = 1.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_donut.png"
-
-            });
-
-            cakes.Add(new Cake
-            {
-                ID = Count++,
-                Name = "Donut blue berry",
-                Category = GetCategoryByID(1),
-                Discount = 0,
-                Price = 12.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_donut_4.png"
-
-            });
-
-            cakes.Add(new Cake
-            {
-                ID = Count++,
-                Name = "Dooonut white coconut",
-                Category = GetCategoryByID(1),
-                Discount = 0,
-                Price = 11.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_donut_pinkcr.png"
-
-            });
-
             cakes.Add(new Cake
             {
                 ID = Count++,
                 Name = "Dooonut White Cream",
                 Category = GetCategoryByID(1),
                 Discount = 0,
-                Price = 1.6f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_donut_whitecr.png"
-
-            });
-
-
-
-
-
-            cakes.Add(new Cake
-            {
-                ID = Count++,
-                Name = "Cookie Chocolate",
-                Category = GetCategoryByID(2),
-                Discount = 0,
                 Price = 1.2f,
                 Amount = 10,
-                Avatar = baseImgUrl + "_cookie.jpg"
+                Avatar = baseImgUrl +"_donut_pink.jpg"
 
             });
 
             cakes.Add(new Cake
             {
                 ID = Count++,
-                Name = "Cookie Blue heart",
-                Category = GetCategoryByID(2),
+                Name = "Dooonut Pink Cream",
+                Category = GetCategoryByID(1),
                 Discount = 0,
-                Price = 12.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_cookie2.jpg"
+                Price = 1.3f,
+                Amount = 11,
+                Avatar = baseImgUrl + "_donut_pink_hourse.jpg"
 
             });
 
             cakes.Add(new Cake
             {
                 ID = Count++,
-                Name = "Cookie Standard",
-                Category = GetCategoryByID(2),
+                Name = "Dooonut Pink Cream 2",
+                Category = GetCategoryByID(1),
                 Discount = 0,
-                Price = 12.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_cookie3.jpg"
+                Price = 1.3f,
+                Amount = 11,
+                Avatar = baseImgUrl + "_donut_chocolate.jpg"
 
             });
 
             cakes.Add(new Cake
             {
                 ID = Count++,
-                Name = "Cookie Chocolate White",
-                Category = GetCategoryByID(2),
+                Name = "Dooonut Pink Cream 3",
+                Category = GetCategoryByID(1),
                 Discount = 0,
-                Price = 12.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_cookie4.jpg"
-
-            });
-
-
-
-
-            cakes.Add(new Cake
-            {
-                ID = Count++,
-                Name = "Birthday Basic",
-                Category = GetCategoryByID(3),
-                Discount = 0,
-                Price = 1.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_birthday.jpg"
+                Price = 1.3f,
+                Amount = 11,
+                Avatar = baseImgUrl + "_donut_orion.jpg"
 
             });
 
             cakes.Add(new Cake
             {
                 ID = Count++,
-                Name = "Birthday Special",
-                Category = GetCategoryByID(3),
+                Name = "Dooonut Pink Cream 3",
+                Category = GetCategoryByID(1),
                 Discount = 0,
-                Price = 1.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_birthday3.jpg"
+                Price = 1.3f,
+                Amount = 11,
+                Avatar = baseImgUrl + "_donut_orion.jpg"
 
             });
 
             cakes.Add(new Cake
             {
                 ID = Count++,
-                Name = "Birthday Chocolate",
-                Category = GetCategoryByID(3),
+                Name = "Dooonut Pink Cream 3",
+                Category = GetCategoryByID(1),
                 Discount = 0,
-                Price = 1.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_birthday4.jpg"
-
-            });
-
-            cakes.Add(new Cake
-            {
-                ID = Count++,
-                Name = "Birthday Brown Berry",
-                Category = GetCategoryByID(3),
-                Discount = 0,
-                Price = 1.2f,
-                Amount = 10,
-                Avatar = baseImgUrl + "_birthday1.jpg"
+                Price = 1.3f,
+                Amount = 11,
+                Avatar = baseImgUrl + "_donut_orion.jpg"
 
             });
 
