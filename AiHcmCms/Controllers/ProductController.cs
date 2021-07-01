@@ -68,8 +68,8 @@ namespace AiHcmCms.Controllers
                         return Ok(new
                         {
                             // Nếu dùng để trả cho web thì dùng dòng này
-                            //url = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" + path
-                            url = hostingEnvironment.WebRootPath + path
+                            url = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" + path
+
                             // Còn nếu muốn dùng cho máy ảo thì chỉ trả về path thôi
                             // url = path
                         });

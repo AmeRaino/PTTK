@@ -48,4 +48,3 @@ C:\workspace\PTTK\AiHcmCms\obj\Debug\netcoreapp2.1\AiHcmCms.RazorTargetAssemblyI
 C:\workspace\PTTK\AiHcmCms\obj\Debug\netcoreapp2.1\AiHcmCms.dll
 C:\workspace\PTTK\AiHcmCms\obj\Debug\netcoreapp2.1\AiHcmCms.pdb
 C:\workspace\PTTK\AiHcmCms\obj\Debug\netcoreapp2.1\AiHcmCms.genruntimeconfig.cache
-C:\workspace\PTTK\AiHcmCms\obj\Debug\netcoreapp2.1\AiHcmCms.csprojAssemblyReference.cache
