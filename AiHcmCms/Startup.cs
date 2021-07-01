@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AiHcmCms.Hubs;
+using AiHcmCms.Models;
 using AiHcmCms.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,6 +45,8 @@ namespace AiHcmCms
             services.AddSingleton<ProductService>();
             services.AddSingleton<OrderService>();
             services.AddSingleton<EndUserService>();
+            services.AddDbContext<ShopDbContext>();
+            //services.AddTransient<ShopDbContext>(_ => new ShopDbContext(Configuration["ConnectionStrings:Default"]));
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

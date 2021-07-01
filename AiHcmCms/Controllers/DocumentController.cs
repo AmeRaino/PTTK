@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AiHcmCms.Dtos.Documents;
-using AiHcmCms.Models.Documents;
+using AiHcmCms.Models;
 using AiHcmCms.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;

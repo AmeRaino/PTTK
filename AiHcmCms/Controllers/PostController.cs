@@ -1,5 +1,5 @@
 ﻿using AiHcmCms.Dtos.Posts;
-using AiHcmCms.Models.Posts;
+using AiHcmCms.Models;
 using AiHcmCms.Models.Users;
 using AiHcmCms.Services;
 using Microsoft.AspNetCore.Cors;
